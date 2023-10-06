@@ -1,7 +1,7 @@
 "use client";
 import { Heading } from "@/components/Heading";
 import { Code } from "lucide-react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { formSchema } from "./constants";
@@ -90,7 +90,7 @@ const CodePage = () => {
         </div>
         <div className="space-y-4 mt-4">
           {isLoading && (
-            <div className="p-8 rounded-lg w-full flex items-center justify-center">
+            <div className="p-20">
               <Loader />
             </div>
           )}
