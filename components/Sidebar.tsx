@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import { FreeCounter } from "./FreeCounter";
 
 const routes = [
   {
@@ -50,7 +51,7 @@ const routes = [
   },
 ];
 
-const Sidebar = () => {
+const Sidebar = ({ apiLimitCount = 0 }: { apiLimitCount: number }) => {
   const pathname = usePathname();
 
   return (
@@ -80,6 +81,8 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
+
+      <FreeCounter apiLimitCount={apiLimitCount} />
     </div>
   );
 };
