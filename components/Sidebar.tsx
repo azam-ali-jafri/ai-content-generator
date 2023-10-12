@@ -4,7 +4,6 @@ import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, Video
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
 import { FreeCounter } from "./FreeCounter";
 
 const routes = [
@@ -51,7 +50,7 @@ const routes = [
   },
 ];
 
-const Sidebar = ({ apiLimitCount = 0 }: { apiLimitCount: number }) => {
+const Sidebar = ({ apiLimitCount = 0 }: { apiLimitCount?: number }) => {
   const pathname = usePathname();
 
   return (

@@ -15,10 +15,11 @@ import { Loader } from "@/components/Loader";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/Select";
 import { Card, CardFooter } from "@/components/ui/Card";
 import Image from "next/image";
+import { useProModal } from "@/hooks/useProModal";
 
 const ImagePage = () => {
   const router = useRouter();
-
+  const proModal = useProModal();
   const [images, setImages] = useState<string[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -44,6 +45,8 @@ const ImagePage = () => {
 
       form.reset();
     } catch (error: any) {
+      if (error?.response?.status === 403) proModal.onOpen();
+
       console.log(error);
     } finally {
       router.refresh();

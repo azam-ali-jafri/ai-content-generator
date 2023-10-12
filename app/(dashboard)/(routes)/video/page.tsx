@@ -12,10 +12,11 @@ import { Button } from "@/components/ui/Button";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { Loader } from "@/components/Loader";
+import { useProModal } from "@/hooks/useProModal";
 
 const VideoPage = () => {
   const router = useRouter();
-
+  const proModal = useProModal();
   const [video, setVideo] = useState<string>();
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -36,6 +37,8 @@ const VideoPage = () => {
       setVideo(response.data[0]);
       form.reset();
     } catch (error: any) {
+      if (error?.response?.status === 403) proModal.onOpen();
+
       console.log(error);
     } finally {
       router.refresh();
