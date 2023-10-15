@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/Button";
 import { Zap } from "lucide-react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 interface Props {
   isPro: boolean;
@@ -18,7 +19,7 @@ const SubscriptionButton = ({ isPro = false }: Props) => {
 
       window.location.href = response.data.url;
     } catch (error) {
-      console.log("Billing error:", error);
+      toast.error("something went wrong");
     } finally {
       setLoading(false);
     }

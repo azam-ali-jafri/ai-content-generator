@@ -16,6 +16,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Card, CardFooter } from "@/components/ui/Card";
 import Image from "next/image";
 import { useProModal } from "@/hooks/useProModal";
+import toast from "react-hot-toast";
 
 const ImagePage = () => {
   const router = useRouter();
@@ -46,8 +47,7 @@ const ImagePage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) proModal.onOpen();
-
-      console.log(error);
+      else toast.error("something went wrong");
     } finally {
       router.refresh();
     }

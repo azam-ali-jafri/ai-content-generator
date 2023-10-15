@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Check, Zap } from "lucide-react";
 import { Button } from "./ui/Button";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ProModal = () => {
   const proModal = useProModal();
@@ -19,7 +20,7 @@ const ProModal = () => {
       const response = await axios.get("/api/stripe");
       window.location.href = response.data.url;
     } catch (error) {
-      console.log("STRIPE CLIENT ERROR:", error);
+      toast.error("something went wrong");
     } finally {
       setLoading(false);
     }

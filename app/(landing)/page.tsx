@@ -1,19 +1,11 @@
-import { Button } from "@/components/ui/Button";
-import { UserButton } from "@clerk/nextjs";
-import Link from "next/link";
-import React from "react";
+import LandingHero from "@/components/LandingHero";
+import LandingNavbar from "@/components/LandingNavbar";
 
 const LandingPage = () => {
   return (
-    <div>
-      <div>
-        <Link href="sign-in">
-          <Button>Login</Button>
-        </Link>
-        <Link href="sign-up">
-          <Button>Register</Button>
-        </Link>
-      </div>
+    <div className="h-full">
+      <LandingNavbar />
+      <LandingHero />
     </div>
   );
 };

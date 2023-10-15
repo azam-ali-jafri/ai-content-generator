@@ -18,6 +18,7 @@ import { UserAvatar } from "@/components/UserAavatar";
 import { BotAvatar } from "@/components/BotAvatar";
 import ReactMarkdown from "react-markdown";
 import { useProModal } from "@/hooks/useProModal";
+import toast from "react-hot-toast";
 
 const CodePage = () => {
   const router = useRouter();
@@ -47,7 +48,7 @@ const CodePage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) proModal.onOpen();
-      console.log(error);
+      else toast.error("something went wrong");
     } finally {
       router.refresh();
     }
