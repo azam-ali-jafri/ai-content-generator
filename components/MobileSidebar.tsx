@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "./ui/Button";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/Sheet";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import Sidebar from "./Sidebar";
 
 const MobileSidebar = ({ apiLimitCount = 0, isPro = false }: { apiLimitCount: number; isPro: boolean }) => {

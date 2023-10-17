@@ -2,13 +2,50 @@ import React, { useState } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "./ui/Dialog";
 import { useProModal } from "@/hooks/useProModal";
 import { Badge } from "./ui/Badge";
-import { tools } from "@/app/(dashboard)/(routes)/dashboard/page";
 import { Card } from "./ui/Card";
 import { cn } from "@/lib/utils";
-import { Check, Zap } from "lucide-react";
+import { Check, Code, Image, MessageSquare, Music, Video, Zap } from "lucide-react";
 import { Button } from "./ui/Button";
 import axios from "axios";
 import toast from "react-hot-toast";
+
+const tools = [
+  {
+    label: "Conversation",
+    icon: MessageSquare,
+    color: "text-violet-500",
+    bgColor: "bg-violet-500/10",
+    href: "/conversation",
+  },
+  {
+    label: "Music Generation",
+    icon: Music,
+    color: "text-emerald-500",
+    bgColor: "bg-emerald-500/10",
+    href: "/music",
+  },
+  {
+    label: "Image Generation",
+    icon: Image,
+    color: "text-pink-700",
+    bgColor: "bg-pink-700/10",
+    href: "/image",
+  },
+  {
+    label: "Video Generation",
+    icon: Video,
+    color: "text-orange-700",
+    bgColor: "bg-orange-700/10",
+    href: "/video",
+  },
+  {
+    label: "Code Generation",
+    icon: Code,
+    color: "text-green-700",
+    bgColor: "bg-green-700/10",
+    href: "/code",
+  },
+];
 
 const ProModal = () => {
   const proModal = useProModal();
